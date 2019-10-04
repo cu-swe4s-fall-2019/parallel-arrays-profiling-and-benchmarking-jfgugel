@@ -1,0 +1,5 @@
+I can't copy out of my terminal.
+
+For linear search, my times ranged from 0.000s to 0.035s. 
+
+For binary search, my times ranged from 0.000s to 0.001s. 
