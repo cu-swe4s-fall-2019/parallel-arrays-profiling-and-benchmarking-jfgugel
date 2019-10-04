@@ -3,8 +3,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+
 blood_counts = [1, 4, 3, 3, 3]
-gene_name_1 = 'test_plot'
+gene_name_1 = 'ACTA2'
 gene_name_2
 gene_name_3
 gene_name_4
@@ -12,6 +13,10 @@ gene_name_4
 width=3
 height=3
 fig = plt.figure(figsize=(width, height), dpi=300)
+plt.xlabel('SMTS')
+plt.ylabel('Gene Read Counts')
+plt.title('Gene Expression by Tissue Group')
+
 ax1 = fig.add_subplot(2, 2, 1)
 ax1.boxplot(blood_counts)
 plt.savefig(gene_name_1 + '.ls.png', bbox_inches='tight')
