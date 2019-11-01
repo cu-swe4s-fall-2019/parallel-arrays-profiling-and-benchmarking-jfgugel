@@ -4,7 +4,8 @@ matplotlib.use('Agg')
 import time
 import data_viz
 import gzip
-
+import hash_functions.py
+import hash_tables.py
 
 def linear_search(key, L):
     hit = -1
@@ -31,6 +32,7 @@ def binary_serach(key, D):
     return -1 
     pass
 
+  
 
 
 
@@ -52,10 +54,10 @@ for l in open(sample_info_file_name):
         samples.append(l.rstrip().split('\t'))
 
 
-group_col_idx = linear_search(group_col_name, sample_info_header)
+group_col_idx = LPHashTable(group_col_name, sample_info_header)
 
 
-sample_id_col_idx = linear_search(sample_id_col_name, sample_info_header)
+sample_id_col_idx = LPHashTable(sample_id_col_name, sample_info_header)
 
 groups = []
 members = []
@@ -66,7 +68,7 @@ for row_idx in range(len(samples)):
     curr_group = sample[group_col_idx]
 
 
-    curr_group_idx = linear_search(curr_group, groups)
+    curr_group_idx = LPHashTable(curr_group, groups)
 
     if curr_group_idx == -1:
         curr_group_idx = len(groups)
@@ -103,7 +105,7 @@ for l in gzip.open(data_file_name, 'rt'):
     if A[gene_name_col] == gene_name:
         for group_idx in range(len(groups)):
             for member in members[group_idx]:
-                member_idx = linear_search(member, data_header)
+                member_idx = LPHashTable(member, data_header)
                 if member_idx != -1:
                     group_counts[group_idx].append(int(A[member_idx]))
 
@@ -162,6 +164,13 @@ def main():
             binary_search(q, D)
         t1_search = time.time() 
 
+        
+    elif op = "H"
+        t0 = time.time()
+        for 1 in Q:
+            LPHashTable(q, H)
+        t1 = time.time()
+        print(t1-t0)
 
 
         t1 = time.time()
